@@ -6,8 +6,8 @@ supervisor.set_usb_identification("David Miles", "EMF Stick")
 # as seen by Windows
 # usb_hid.set_interface_name('EMF Stick')
 
-# This is only one example of a gamepad report descriptor,
-# and may not suit your needs.
+# This is based on the Adafruit example at 
+# https://learn.adafruit.com/customizing-usb-devices-in-circuitpython/hid-devices#custom-hid-devices-3096614-9
 GAMEPAD_REPORT_DESCRIPTOR = bytes((
     0x05, 0x01,  # Usage Page (Generic Desktop Ctrls)
     0x09, 0x05,  # Usage (Game Pad)
@@ -51,7 +51,7 @@ gamepad = usb_hid.Device(
     usage_page=0x01,           # Generic Desktop Control
     usage=0x05,                # Gamepad
     report_ids=(4,),           # Descriptor uses report ID 4.
-    in_report_lengths=(9,),    # This gamepad sends 6 bytes in its report.
+    in_report_lengths=(9,),    # This gamepad sends 9 bytes in its report.
     out_report_lengths=(0,),   # It does not receive any reports.
 )
 
